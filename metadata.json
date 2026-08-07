@@ -1,0 +1,6 @@
+{
+  "name": "خطة خلف — 20 يوم",
+  "description": "تطبيق إدارة خطة الدراسة للامتحانات الوزارية خلال 20 يومًا",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

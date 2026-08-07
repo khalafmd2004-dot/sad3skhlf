@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  input, textarea {
+    user-select: text;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Cairo', 'Tajawal', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Custom scrollbars for clean look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Safe area inset utilities for mobile notch/home bar */
+.pb-safe {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+
+.pt-safe {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+
