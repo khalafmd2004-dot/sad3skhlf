@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ThemeMode } from '../types';
 import { Sun, Moon, RotateCcw, Info, Calendar, Smartphone, CheckCircle, ShieldCheck, Bell, BellOff, Send, Clock } from 'lucide-react';
 import { ConfirmationModal } from './ConfirmationModal';
+import { STUDY_PLAN } from '../data/planData';
 import {
   getReminderConfig,
   saveReminderConfig,
@@ -216,7 +217,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           >
             {Array.from({ length: 20 }, (_, i) => i + 1).map((d) => (
               <option key={d} value={d}>
-                اليوم {d} ({d === 1 ? '7/8' : d === 20 ? '26/8' : `${d + 6}/8`})
+                اليوم {d} ({STUDY_PLAN[d - 1]?.dateStr})
               </option>
             ))}
           </select>
@@ -253,7 +254,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
 
         <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2 text-xs text-slate-300 leading-relaxed">
           <div className="font-black text-slate-100 text-sm">خطة خلف — 20 يوم للوزاري</div>
-          <p>تطبيق إدارة وتتبع الجدول المكثف للامتحانات الوزارية (من 7/8 إلى 26/8).</p>
+          <p>تطبيق إدارة وتتبع الجدول المكثف للامتحانات الوزارية (من 9/8 إلى 28/8).</p>
 
           <div className="pt-2 border-t border-slate-800 space-y-1.5 text-[11px] text-slate-400">
             <div className="flex items-center gap-1.5 text-emerald-400">
@@ -266,7 +267,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             </div>
             <div className="flex items-center gap-1.5 text-indigo-400">
               <CheckCircle className="w-4 h-4" />
-              <span>تمت مراجعة الخطة والمنهاج بدقة بدون الفصل الثالث للرياضيات وبدون يوم 27/8</span>
+              <span>تمت مراجعة الخطة والمنهاج بدقة لجميع الأيام العشرين بدون الفصل الثالث للرياضيات</span>
             </div>
           </div>
         </div>

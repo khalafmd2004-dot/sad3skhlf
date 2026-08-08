@@ -19,7 +19,7 @@ export const ScheduleView: React.FC<ScheduleViewProps> = ({
       <div className="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
         <div>
           <h2 className="text-lg font-black text-slate-100">جدول الـ 20 يومًا الشامل</h2>
-          <p className="text-xs text-slate-400 mt-0.5">من 7/8 إلى 26/8 — اضغط على أي يوم لعرض مهامه التفصيلية</p>
+          <p className="text-xs text-slate-400 mt-0.5">من 9/8 إلى 28/8 — اضغط على أي يوم لعرض مهامه التفصيلية</p>
         </div>
       </div>
 
@@ -86,9 +86,6 @@ export const ScheduleView: React.FC<ScheduleViewProps> = ({
 
               {/* Subjects Preview Badges */}
               <div className="flex flex-wrap gap-1 mt-3">
-                <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20">
-                  ⚡ الفيزياء
-                </span>
                 <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
                   🧪 الكيمياء
                 </span>

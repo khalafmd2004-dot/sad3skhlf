@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight, ChevronLeft, Calendar as CalendarIcon } from 'lucide-react';
+import { STUDY_PLAN } from '../data/planData';
 
 interface DayNavigationProps {
   currentDayNumber: number; // 1 to 20
@@ -40,13 +41,7 @@ export const DayNavigation: React.FC<DayNavigationProps> = ({
         >
           {Array.from({ length: totalDays }, (_, i) => i + 1).map((d) => (
             <option key={d} value={d} className="bg-slate-900 text-slate-100 font-medium">
-              اليوم {d} (
-              {d === 1
-                ? '7/8'
-                : d === 20
-                ? '26/8'
-                : `${d + 6}/8`}
-              )
+              اليوم {d} ({STUDY_PLAN[d - 1]?.dateStr})
             </option>
           ))}
         </select>

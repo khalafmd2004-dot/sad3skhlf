@@ -22,7 +22,7 @@ export const StatsView: React.FC<StatsViewProps> = ({ completedTaskIds }) => {
   const streak = calculateStreak(completedTaskIds);
   const laggingSubject = findLaggingSubject(completedTaskIds);
 
-  const subjectList: SubjectId[] = ['physics', 'chemistry', 'math', 'arabic'];
+  const subjectList: SubjectId[] = ['chemistry', 'math', 'arabic'];
 
   return (
     <div className="space-y-4 pb-20">

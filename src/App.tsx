@@ -108,13 +108,11 @@ export default function App() {
             {/* Top Summary Banner */}
             <div className="bg-slate-900/90 rounded-3xl border border-slate-800 p-4 sm:p-5 shadow-lg space-y-3">
               <div className="flex items-center justify-between text-xs sm:text-sm font-black">
-                <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs sm:text-sm">
-                    اليوم {currentDayPlan.dayNumber} من 20
-                  </span>
+                <div className="flex items-center gap-2 text-slate-200 font-bold">
+                  <span>العداد التنازلي للوزاري:</span>
                 </div>
-                <div className="text-slate-400 font-medium">
-                  وباقي: <span className="text-amber-400 font-bold font-mono">{remainingDaysCount}</span> يوم
+                <div className="text-slate-300 font-bold bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full text-xs sm:text-sm">
+                  باقي: <span className="text-amber-400 font-mono text-sm sm:text-base font-black">{remainingDaysCount}</span> يوم
                 </div>
               </div>
 

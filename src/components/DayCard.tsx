@@ -19,13 +19,12 @@ export const DayCard: React.FC<DayCardProps> = ({ day, completedTaskIds, onToggl
 
   // Group tasks by subject
   const groupedTasks: Record<SubjectId, Task[]> = {
-    physics: day.tasks.filter((t) => t.subjectId === 'physics'),
     chemistry: day.tasks.filter((t) => t.subjectId === 'chemistry'),
     math: day.tasks.filter((t) => t.subjectId === 'math'),
     arabic: day.tasks.filter((t) => t.subjectId === 'arabic'),
   };
 
-  const subjectOrder: SubjectId[] = ['physics', 'chemistry', 'math', 'arabic'];
+  const subjectOrder: SubjectId[] = ['chemistry', 'math', 'arabic'];
 
   // Random encouraging message remembered for when completed
   const encouragingMessage = React.useMemo(() => getRandomEncouragingMessage(), [isFullyCompleted]);

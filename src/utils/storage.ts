@@ -8,7 +8,10 @@ const LAST_SELECTED_DAY_KEY = 'khalaf_plan_active_day';
 export const getCompletedTaskIds = (): string[] => {
   try {
     const data = localStorage.getItem(COMPLETED_TASKS_KEY);
-    return data ? JSON.parse(data) : [];
+    if (!data) return [];
+    const parsed: string[] = JSON.parse(data);
+    const validTaskIds = new Set(getAllTasks().map((t) => t.id));
+    return parsed.filter((id) => validTaskIds.has(id));
   } catch (e) {
     console.error('Failed to load completed tasks', e);
     return [];
@@ -106,6 +109,17 @@ export const calculateStreak = (completedTaskIds: string[]) => {
   return streak;
 };
 
+export const calculateRemainingDaysUntilTarget = (): number => {
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const targetStart = new Date(2026, 7, 27); // 27 August 2026 (Month index 7 = August)
+
+  const diffMs = targetStart.getTime() - todayStart.getTime();
+  const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+
+  return diffDays < 0 ? 0 : diffDays;
+};
+
 export const calculateDaysStatus = (completedTaskIds: string[]) => {
   let completedDaysCount = 0;
   for (const day of STUDY_PLAN) {
@@ -116,13 +130,13 @@ export const calculateDaysStatus = (completedTaskIds: string[]) => {
   }
   return {
     completedDaysCount,
-    remainingDaysCount: STUDY_PLAN.length - completedDaysCount,
+    remainingDaysCount: calculateRemainingDaysUntilTarget(),
     totalDays: STUDY_PLAN.length,
   };
 };
 
 export const findLaggingSubject = (completedTaskIds: string[]) => {
-  const subjectIds: SubjectId[] = ['physics', 'chemistry', 'math', 'arabic'];
+  const subjectIds: SubjectId[] = ['chemistry', 'math', 'arabic'];
   const stats = subjectIds.map((id) => {
     const { percentage, completed, total } = calculateSubjectProgress(id, completedTaskIds);
     return {
