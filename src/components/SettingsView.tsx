@@ -69,7 +69,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
       return;
     }
     sendNotification(
-      'تنبيه تجريبي — خطة خلف 20 يوم 🔔',
+      'تنبيه تجريبي — خطة خلف للوزاري 🔔',
       'التنبيهات اليومية تعمل بنجاح! سيتم تنبيهك يومياً في الوقت المحدد.'
     );
     setNotificationMsg('تم إرسال إشعار تجريبي.');
@@ -215,7 +215,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             onChange={(e) => onSelectDay(Number(e.target.value))}
             className="bg-slate-900 text-slate-100 border border-slate-700 text-xs font-bold rounded-xl py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
-            {Array.from({ length: 20 }, (_, i) => i + 1).map((d) => (
+            {Array.from({ length: STUDY_PLAN.length }, (_, i) => i + 1).map((d) => (
               <option key={d} value={d}>
                 اليوم {d} ({STUDY_PLAN[d - 1]?.dateStr})
               </option>
@@ -253,8 +253,8 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
         </div>
 
         <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2 text-xs text-slate-300 leading-relaxed">
-          <div className="font-black text-slate-100 text-sm">خطة خلف — 20 يوم للوزاري</div>
-          <p>تطبيق إدارة وتتبع الجدول المكثف للامتحانات الوزارية (من 9/8 إلى 28/8).</p>
+          <div className="font-black text-slate-100 text-sm">خطة خلف — الخطة الوزارية الشاملة</div>
+          <p>تطبيق إدارة وتتبع الجدول المكثف للامتحانات الوزارية (من 10/8 إلى 28/8).</p>
 
           <div className="pt-2 border-t border-slate-800 space-y-1.5 text-[11px] text-slate-400">
             <div className="flex items-center gap-1.5 text-emerald-400">
@@ -263,11 +263,11 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             </div>
             <div className="flex items-center gap-1.5 text-cyan-400">
               <Smartphone className="w-4 h-4" />
-              <span>متوافق تمامًا مع النشر على Netlify والتحويل عبر Median إلى Android / iOS</span>
+              <span>متوافق تمامًا مع جميع الأجهزة والمستعرضات</span>
             </div>
             <div className="flex items-center gap-1.5 text-indigo-400">
               <CheckCircle className="w-4 h-4" />
-              <span>تمت مراجعة الخطة والمنهاج بدقة لجميع الأيام العشرين بدون الفصل الثالث للرياضيات</span>
+              <span>تمت مراجعة الخطة والمنهاج بدقة لجميع الأيام (بدون الفصل 3 فيزياء، 3 رياضيات، 6و7 كيمياء)</span>
             </div>
           </div>
         </div>

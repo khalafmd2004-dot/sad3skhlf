@@ -49,7 +49,7 @@ export const getSavedActiveDayNumber = (): number => {
     const saved = localStorage.getItem(LAST_SELECTED_DAY_KEY);
     if (saved) {
       const num = parseInt(saved, 10);
-      if (num >= 1 && num <= 20) return num;
+      if (num >= 1 && num <= STUDY_PLAN.length) return num;
     }
   } catch (e) {
     // fallback
@@ -112,7 +112,7 @@ export const calculateStreak = (completedTaskIds: string[]) => {
 export const calculateRemainingDaysUntilTarget = (): number => {
   const now = new Date();
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const targetStart = new Date(2026, 7, 27); // 27 August 2026 (Month index 7 = August)
+  const targetStart = new Date(2026, 7, 28); // 28 August 2026 (Month index 7 = August)
 
   const diffMs = targetStart.getTime() - todayStart.getTime();
   const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
@@ -136,7 +136,7 @@ export const calculateDaysStatus = (completedTaskIds: string[]) => {
 };
 
 export const findLaggingSubject = (completedTaskIds: string[]) => {
-  const subjectIds: SubjectId[] = ['chemistry', 'math', 'arabic'];
+  const subjectIds: SubjectId[] = ['physics', 'chemistry', 'math', 'arabic'];
   const stats = subjectIds.map((id) => {
     const { percentage, completed, total } = calculateSubjectProgress(id, completedTaskIds);
     return {

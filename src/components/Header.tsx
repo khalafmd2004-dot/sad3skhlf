@@ -18,7 +18,7 @@ export const Header: React.FC<HeaderProps> = ({ streak, theme, onToggleTheme }) 
             خطة خلف
           </h1>
           <p className="text-xs sm:text-sm text-slate-400 font-medium">
-            20 يوم للوزاري
+            الخطة الشاملة للوزاري (10/8 – 28/8)
           </p>
         </div>
 

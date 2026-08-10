@@ -1,4 +1,4 @@
-export type SubjectId = 'chemistry' | 'math' | 'arabic';
+export type SubjectId = 'physics' | 'chemistry' | 'math' | 'arabic';
 
 export interface Task {
   id: string; // e.g., "day1-physics-1"

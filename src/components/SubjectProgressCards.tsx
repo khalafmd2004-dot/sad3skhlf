@@ -8,10 +8,10 @@ interface SubjectProgressCardsProps {
 }
 
 export const SubjectProgressCards: React.FC<SubjectProgressCardsProps> = ({ completedTaskIds }) => {
-  const subjectList: SubjectId[] = ['chemistry', 'math', 'arabic'];
+  const subjectList: SubjectId[] = ['chemistry', 'math', 'arabic', 'physics'];
 
   return (
-    <div className="grid grid-cols-3 gap-2 sm:gap-3 my-4">
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 my-4">
       {subjectList.map((id) => {
         const config = SUBJECTS[id];
         const { percentage, completed, total } = calculateSubjectProgress(id, completedTaskIds);

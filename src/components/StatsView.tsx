@@ -22,7 +22,7 @@ export const StatsView: React.FC<StatsViewProps> = ({ completedTaskIds }) => {
   const streak = calculateStreak(completedTaskIds);
   const laggingSubject = findLaggingSubject(completedTaskIds);
 
-  const subjectList: SubjectId[] = ['chemistry', 'math', 'arabic'];
+  const subjectList: SubjectId[] = ['chemistry', 'math', 'arabic', 'physics'];
 
   return (
     <div className="space-y-4 pb-20">
@@ -90,7 +90,7 @@ export const StatsView: React.FC<StatsViewProps> = ({ completedTaskIds }) => {
             <span>الأيام المتبقية</span>
           </div>
           <div className="text-2xl font-black text-rose-300 font-mono my-1">{remainingDaysCount} يوم</div>
-          <p className="text-[11px] text-slate-400">من أصل 20 يومًا للوزاري</p>
+          <p className="text-[11px] text-slate-400">من أصل الخطة الشاملة للوزاري</p>
         </div>
       </div>
 
